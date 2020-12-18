@@ -17,7 +17,7 @@ app.get("/newFeeds", async (req, res)=>{
     const limit = getval(req.query.limit, onePageArticleCount) + offset;
     const datafromServer = await newsArticleModel.find();
   const result = await datafromServer.slice(offset, limit);
-  res.send(result);
+  res.status(200).send(result);
 })
 
 app.listen(port, () => console.log(`App listening on port ${port}!`))

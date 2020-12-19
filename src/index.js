@@ -10,7 +10,7 @@ const {newsArticleModel} = require('./connector');
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 const getval = (value, defaultvalue)=>
-     (value === null || value === undefined || isNaN(value)) ? defaultvalue : Number(value);
+     (value === null || value === undefined || isNaN(Number(value))) ? defaultvalue : Number(value);
 
 app.get("/newFeeds", async (req, res)=>{
     const offset = getval(req.query.offset, 0);
